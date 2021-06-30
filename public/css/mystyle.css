@@ -1,0 +1,70 @@
+.navbar-color {
+    background-color: darkslateblue;
+}
+
+.color-white {
+    color: #FFFF !important;
+    font-weight: bold;
+}
+
+.panel-heading {
+    background-color: darkslateblue !important;
+    color: #FFFF !important;
+    font-weight: bold;
+}
+
+.color-white-link:hover {
+    color: cornsilk !important;
+    font-weight: bold;
+}
+
+.color-white-link {
+    color: #FFFF !important;
+    font-weight: bold;
+}
+
+.logo {
+    margin-top: -5px !important;
+}
+
+.img-mask {
+    overflow: hidden;
+}
+
+.img-mask .producto-imagen {
+    width: 100%;
+    height: 100%;
+}
+
+.panel-size {
+    width: 100%;
+}
+
+.panel-size .img-mask {
+    width: 100%;
+    height: 180px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.img-mask-descripcion {
+    width: 100%;
+    height: 80%;
+}
+
+.img-mask-descripcion .descripcion-imagen {
+    width: 100%;
+    height: 100%;
+}
+
+.img-mask-edit {
+    width: 80%;
+    height: 80% !important;
+}
+
+.img-mask-edit .producto-imagen {
+    width: 100%;
+    height: 100%;
+}

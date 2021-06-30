@@ -56,7 +56,7 @@
                         @if (Auth::guest())
                             <li><a class="color-white-link" href="{{ route('login') }}">Iniciar sesión</a></li>
                             <li><a class="color-white-link" href="{{ route('register') }}">Crear una cuenta</a></li>
-
+                            <li><a class="color-white-link" href=""><img src="{{ asset('images/carrito-de-compras.png') }}"></a></li>
                         @else
                         <form class="navbar-form navbar-left" role="search" action="{{url('/buscar')}}">
                             <div class="form-group">

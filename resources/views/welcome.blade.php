@@ -4,9 +4,11 @@
 
 @section('content')
 <br><br>
+
 <div class="row pt-5 text-center">
-  <img class="card-img-top descripcion-imagen" src="{{ asset('images/fondo.jpg') }}" alt="imagen de fondo" width="85%" height="25%">
+  <img class="card-img-top descripcion-imagen" src="{{ asset('images/fondo.jpg') }}" alt="imagen de fondo" width="85%" height="20%">
 </div>
+<hr>
 
 <div class="container">
   
@@ -100,6 +102,11 @@
                                           <a class="btn btn-success" href="{{route('carrito')}}">  <img src="{{ asset('images/carrito-de-compras.png') }}"></a>
                                         </div>
                                       </div>    
+                                    </div>
+
+
+                                    <div class="row">
+                                      
                                     </div>
                                 </div>
                             </div>

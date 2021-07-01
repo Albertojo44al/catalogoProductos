@@ -135,7 +135,7 @@ class ProductosController extends Controller
     public function getProducto($id){
         $producto = producto::find($id);
     
-        print($producto);
+        // print($producto);
         return view('productos.detalleProducto', array(
             'producto' => $producto,
         ));

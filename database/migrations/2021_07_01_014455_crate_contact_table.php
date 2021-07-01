@@ -15,12 +15,12 @@ class CrateContactTable extends Migration
     {
         Schema::create('contact_comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id');
+            $table->integer('producto_id');
             $table->string('name');
             $table->string('email');
             $table->string('comment');
             $table->timestamps();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('producto_id')->references('id')->on('products');
         });
     }
 

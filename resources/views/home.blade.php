@@ -1,7 +1,6 @@
 @extends('layouts.app')
-<br><br><br><br>
+
 @section('content')
-<div class="container">
     <div class="row">
       <div class="col-md-10">
         @if(session('message'))
@@ -45,9 +44,9 @@
                             </div>
                             <div  href="{{route('producto', ['id' => $prod->id])}}"  class="panel-body pointer">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 text-center">
                                         @if(Storage::disk('images')->has($prod->image))
-                                            <img class="card-img-top producto-imagen" width="100%" height="150px" src="{{url('/imagen/'.$prod->image)}}" alt="{{$prod->name}}">
+                                            <img class="card-img-top producto-imagen" height="80px" src="{{url('/imagen/'.$prod->image)}}" alt="{{$prod->name}}">
                                         @endif
                                     </div>
                                     <div class="col-md-8">
@@ -68,14 +67,7 @@
                             </div>
                         </div> 
                     </div>
-                    {{-- <!-- Modal visualizar -->
-                    <div class="modal fade" id="exampleModalCenter{{$prod->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                          <div class="modal-content">
-                           
-                          </div>
-                        </div>
-                    </div> --}}
+
 
                    
                     <!--Modal eliminar -->
@@ -109,9 +101,4 @@
         <div class="panel-footer"> {{$productos->links()}}</div>
     </div>
       
-
-  
-  
-
-</div>
 @endsection

@@ -1,7 +1,6 @@
 @extends('layouts.app')
-<br><br><br><br>
+
 @section('content')
-<div class="container">
     <div class="row">
         <div class="col-md">
         
@@ -16,9 +15,9 @@
                 @if($errors->any())
                     <div class="aler alert-danger">
                         <ul>
-                             @foreach ($errors->all() as $error)
-                                 <li>{{$error}}</li>
-                             @endforeach   
+                                @foreach ($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach   
                         </ul>
                     </div>
                 @endif
@@ -52,9 +51,9 @@
         </div>
         </div>
         <div class="col-md text-center">
-          <br><br><br><br><br><br>
-          <img class="a" src="{{ asset('images/documento.png') }}">
+            <br><br><br><br><br><br>
+            <img class="a" src="{{ asset('images/documento.png') }}">
         </div> 
     </div>
-</div>
+
 @endsection

@@ -56,22 +56,23 @@
                             <li><a class="color-white-link" href="{{ route('register') }}">Crear una cuenta</a></li>
                             <li><a class="color-white-link" href=""><img src="{{ asset('images/carrito-de-compras.png') }}"></a></li>
                         @else
-                        <form class="navbar-form navbar-left" role="search" action="{{url('/buscar')}}">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Productos" name="search" id="search" value="{{old('search')}}">                        
-                            </div>
-                            <button type="submit" class="btn btn-primary">
-                                <img src="{{ asset('images/lupa.png') }}"> 
-                            </button>
-                        </form>
-                        <li>
-                        @if(Auth::user()->role==1)
-                            <a class="color-white-link" href="{{url('/home')}}">Catalogo</a>
-                        @else
-                            <a class="color-white-link" href="{{url('/')}}">Catalogo</a>
-                        @endif
-                             
-                        </li>
+                            <form class="navbar-form navbar-left" role="search" action="{{url('/buscar')}}">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Productos" name="search" id="search" value="{{old('search')}}">                        
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <img src="{{ asset('images/lupa.png') }}"> 
+                                </button>
+                            </form>
+                            <li>
+                            @if(Auth::user()->role==1)
+                                <a class="color-white-link" href="{{url('/home')}}">Catalogo</a>
+                            @else
+                                <a class="color-white-link" href="{{url('/')}}">Catalogo</a>
+                            @endif
+                                
+                            </li>
+                            <li><a class="color-white-link" href=""><img src="{{ asset('images/carrito-de-compras.png') }}"></a></li>
                             <li class="dropdown">
                                 <a href="#" class="color-white-link" data-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -81,7 +82,7 @@
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                        document.getElementById('logout-form').submit();">
                                             Salir
                                         </a>
 
@@ -96,9 +97,11 @@
                 </div>
             </div>
         </nav>
+        <div class="container vertical-view">
+            <br><br><br><br>
 
-        @yield('content')
-
+            @yield('content')
+        </div>   
         <footer class="col-md-10 col-md-offset-1">
             <hr>
             <p>MultiShop tu tienda en lineda de confianza &copy; 2021</p>

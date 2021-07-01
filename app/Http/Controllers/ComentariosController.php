@@ -18,7 +18,7 @@ class ComentariosController extends Controller
         $usuario = \Auth::user();
         error_log($usuario);
         
-        $contacto->product_id = $request->input('product_id'); 
+        $contacto->producto_id = $request->input('product_id'); 
         $contacto->comment = $request->input('comentario');
         $contacto->name = ($request->input('nombre')==null)?$usuario->name:$request->input('nombre');
         $contacto->email = ($request->input('correo')==null)?$usuario->email:$request->input('correo');

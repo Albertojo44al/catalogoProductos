@@ -27,15 +27,14 @@
     </div>
   </div>
   <br><br>
-  <div>
           @if (session('status'))
               <div class="alert alert-success">
                   {{ session('status') }}
               </div>
           @endif
-              <div class="container">
-
+            <ul id="producto-list">
               @foreach ($productos as $prod)
+            
                   <div class="col-md-4">
                       <div class="panel panel-size panel-default">  
                           <div class="panel">
@@ -45,7 +44,7 @@
                           </div>
                           
                           @if(Storage::disk('images')->has($prod->image))
-                              <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}" href={{url('/producto/'.$prod->id)}} class="img-mask pointer">
+                              <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}" class="img-mask pointer">
                                   <img class="card-img-top producto-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
                               </div>    
                           @endif
@@ -105,18 +104,21 @@
                                     </div>
 
 
-                                    <div class="row">
-                                      
+                                      <br>
+                                      <br>
+                                      <div class="row">
+                                        @include('productos.comentarios')
+                                      </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                       </div>
-                  </div>
 
               @endforeach
-            </div>
-              
+            </ul>
+  
         
      <div class="row">
       <div class="panel-footer"> {{$productos->links()}}</div>

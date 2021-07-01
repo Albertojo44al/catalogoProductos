@@ -18,10 +18,10 @@ class producto extends Model
         return $this->belongsTo('App\User','user_id','id');
     }
 
-    // public function carrito()
-    // {
-    //     return $this->belongsTo('App\carrito','car_id');
-    // }
+    public function carrito()
+    {
+        return $this->belongsTo('App\carrito','car_id');
+    }
     
 
     

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>TechNology</title>
+    <title> {{ config('app.name', 'MultiShop') }}</title>
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,13 +31,11 @@
                     </button>
 
                     <!-- Branding Image -->
-                    
-                       
-             
+
                     <a class="navbar-brand logo color-white " href="{{ url('/') }}">
-                        TechNology &nbsp;
+                        {{ config('app.name', 'MultiShop') }} &nbsp;
                         <span>
-                            <img src="{{ asset('images/technology.png') }}"> 
+                            <img src="{{ asset('images/keyboard-m.png') }}"> 
                         </span>
                     </a>
                        
@@ -100,6 +98,11 @@
         </nav>
 
         @yield('content')
+
+        <footer class="col-md-10 col-md-offset-1">
+            <hr>
+            <p>MultiShop tu tienda en lineda de confianza &copy; 2021</p>
+        </footer>
     </div>
 
     <!-- Scripts -->

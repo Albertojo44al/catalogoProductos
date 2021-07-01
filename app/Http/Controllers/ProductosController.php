@@ -46,7 +46,7 @@ class ProductosController extends Controller
         $producto->save();
 
         return redirect()->route('home')->with(array(
-            'message' => 'El articulo se ha guardado correctamente!!'
+            'message' => '¡El articulo se ha guardado correctamente!'
         ));
     }
 
@@ -61,9 +61,9 @@ class ProductosController extends Controller
         if($user){
             Storage::disk('images')->delete($producto->image);
             $producto->delete();
-            $message = array('message' => '�Producto eliminado correctamente!');
+            $message = array('message' => '¡Producto eliminado correctamente!');
         }else{
-        $message = array('message' => '�El producto no se ha podido eliminar!');
+        $message = array('message' => '¡El producto no se ha podido eliminar!');
         }
         return redirect()->route('home')->with($message);
     }

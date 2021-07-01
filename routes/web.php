@@ -80,3 +80,9 @@ Route::get('/carrito', [
     'as' => 'carrito',
     'uses' => 'ProductosController@agregarAcarrito'
 ]);
+
+
+Route::post('/comment', [
+    'as' => 'comment',
+    'uses' => 'ComentariosController@guardarComentario'
+]);

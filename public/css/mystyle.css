@@ -1,5 +1,5 @@
 .navbar-color {
-    background-color: darkslateblue;
+    background-color: rgb(11, 39, 25);
 }
 
 .color-white {
@@ -8,7 +8,7 @@
 }
 
 .panel-heading {
-    background-color: darkslateblue !important;
+    background-color: rgb(11, 39, 25) !important;
     color: #FFFF !important;
     font-weight: bold;
 }

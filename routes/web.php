@@ -51,7 +51,11 @@ Route::post('/guardar-producto', array(
 
 Route::get('/imagen/{filename}','ProductosController@getImagenes');
 
-Route::get('/producto/{id}', 'HomeController@getProducto');
+Route::get('/producto/{id}', array(
+    'as' => 'producto',
+    'middleware' => 'auth',
+    'uses' => 'ProductosController@getProducto'
+));
 
 Route::get('/borrar-producto/{id}', array(
     'as' => 'borrarProducto',

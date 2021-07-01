@@ -5,28 +5,24 @@
     <div class="row">
       <div class="col-md-10">
         @if(session('message'))
-        <div class="alert alert-success">
-            {{session('message')}}
-        </div>
-        @endif
-        @if(session('carrito'))
-        <div class="alert alert-success">
-            ¡Producto agregado al carrito!
-        </div>
+            <div class="alert alert-success">
+                {{session('message')}}
+            </div>
         @endif
       </div>
       <div class="col-md-2">
         @if(Auth::user()->role == 1)
-                <div class="row text-right pr-4">
-                    <a class="btn btn-success" href="{{route('crearProducto')}}">  Agregar producto</a> &nbsp;&nbsp; &nbsp;&nbsp;
-                </div>    
-                <br>
+            <div class="row text-right pr-4">
+                <a class="btn btn-success" href="{{route('crearProducto')}}">  Agregar producto</a> &nbsp;&nbsp; &nbsp;&nbsp;
+            </div>    
+            <br>
         @endif 
       </div>
     </div>
     <div class="panel panel-default">
-        <div class="panel-heading text-center">CATALOGO</div>
-
+        <div class="panel-heading text-center">
+            CATALOGO
+        </div>
         <div class="panel-body">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -35,47 +31,51 @@
             @endif
             <ul id="producto-list">
                 @foreach ($productos as $prod)
-                    <div class="col-md-4">
-                        <div class="panel panel-size panel-default">  
+                    <div class="row">
+                        <div class="panel panel-size panel-default mr-4">  
                             <div class="panel">
                                 @if(Auth::user()->role == 1)
-                                    <div class="pull-left">
+                                    <div class="pull-right">
+                                        
+                                        <a class="btn btn-primary"  href="{{route('producto', ['id' => $prod->id])}}" >  <img src="{{ asset('images/chat.png') }}">  </a>
                                         <a class="btn btn-danger"  href="#elimnarModal{{$prod->id}}" data-toggle="modal">  <img src="{{ asset('images/delete.png') }}">  </a>
                                         <a class="btn btn-warning" href="{{route('editarProducto', ['id' => $prod->id])}}">  <img src="{{ asset('images/edit.png') }}"> </a>    
                                     </div>
                                 @endif
-
-                                    <div class="text-right">
-                                        <a class="btn btn-success" href="{{route('carrito')}}">  <img src="{{ asset('images/carrito-de-compras.png') }}"></a>
-                                    </div>
                             </div>
-                           
-                            @if(Storage::disk('images')->has($prod->image))
-                                <div data-toggle="modal" data-target="#exampleModalCenter{{$prod->id}}" href={{url('/producto/'.$prod->id)}} class="img-mask pointer">
-                                    <img class="card-img-top producto-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
-                                </div>    
-                            @endif
-                            <div data-toggle="modal" data-target="#exampleModalCenter{{$prod->id}}" href={{url('/producto/'.$prod->id)}}  class="panel-body text-center pointer">
-                                <div class="text-right">
-                                   
-                                </div>
-                                <hr>
-                                <h4>{{$prod->name}}</h4>
-                               
-                                <label> Cantidad:  {{$prod->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <label> Precio: L {{number_format( $prod->price, 2, '.', '')}} </label>
-                               
+                            <div  href="{{route('producto', ['id' => $prod->id])}}"  class="panel-body pointer">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        @if(Storage::disk('images')->has($prod->image))
+                                            <img class="card-img-top producto-imagen" width="100%" height="150px" src="{{url('/imagen/'.$prod->image)}}" alt="{{$prod->name}}">
+                                        @endif
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <h4><b>{{$prod->name}}</b></h4>
+                                        </div>
+                                        <div class="row">
+                                            <p>
+                                                {{$prod->description}}
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <label> Cantidad:  {{$prod->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <label> Precio: L {{number_format( $prod->price, 2, '.', '')}} </label>
+                                        </div>
+                                    </div>
+                                </div>      
                             </div>
                         </div> 
                     </div>
-                    <!-- Modal visualizar -->
+                    {{-- <!-- Modal visualizar -->
                     <div class="modal fade" id="exampleModalCenter{{$prod->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
                            
                           </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                    
                     <!--Modal eliminar -->

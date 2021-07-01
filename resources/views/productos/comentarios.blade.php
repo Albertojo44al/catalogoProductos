@@ -12,7 +12,7 @@
                 </div>
             @endif
 
-            <input type="hidden" name="producto_id" value="{{$prod->id}}" required>
+            <input type="hidden" name="product_id" value="{{$prod->id}}" required>
 
         
 

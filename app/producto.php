@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class producto extends Model
 {
+
+   
+
+
     protected $table = 'products';
     //uno a muchos hasMany
     //uno a uno hasOne
@@ -20,7 +24,11 @@ class producto extends Model
 
     public function carrito()
     {
-        return $this->belongsTo('App\carrito','car_id');
+        return $this->belongsTo('App\carrito','car_id','id');
+    }
+
+    public function comentarios(){
+        return $this->hasMany('App\Contacto');
     }
     
 

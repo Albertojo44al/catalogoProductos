@@ -131,4 +131,13 @@ class ProductosController extends Controller
             'carrito' => '¡El articulo se ha agregado al carrito!'
         ));
     }
+
+    public function getProducto($id){
+        $producto = producto::find($id);
+    
+        print($producto);
+        return view('productos.detalleProducto', array(
+            'producto' => $producto,
+        ));
+    }
 }

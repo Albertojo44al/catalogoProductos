@@ -1,43 +1,47 @@
+@extends('layouts.app')
 
+<br><br><br><br>
+@section('content')
 
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body text-center">
-  <div class="row ">
-    <div class="col-md-2">
-    
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3">
+      @if(Storage::disk('images')->has($producto->image))
+      <img class="card-img-top producto-imagen" width="100%" height="150px" src="{{url('/imagen/'.$producto->image)}}" alt="{{$producto->name}}">
+      @endif
     </div>
     <div class="col-md-8">
-      <div class="panel">
-        <h1> {{$producto->name}} <h1>
+      <div class="row">
+        <h4><b>{{$producto->name}}</b></h4>
       </div>
-      @if(Storage::disk('images')->has($producto->image))
-        <div class="img-mask-descripcion pointer">
-            <img class="card-img-top descripcion-imagen" src="{{url('/imagen/'.$producto->image)}}" alt="Card image cap">
-        </div>    
-      @endif
-        <br><br>
-      <label>
-          Precio: {{number_format( $producto->price, 2, '.', '')}}
-      </label>&nbsp;&nbsp;&nbsp;
-      <label>
-          Cantidad: {{$producto->quantity}}
-      </label>
-      <p> {{$producto->description}}</p>
+      <div class="row">
+        <p>
+          {{$producto->description}}
+        </p>
+      </div>
+      <div class="row">
+        <label> Cantidad:  {{$producto->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
+        <label> Precio: L {{number_format( $producto->price, 2, '.', '')}} </label>
+      </div>
+    </div>
+  </div> 
+</div>
 
-     
-    </div>
-    <div class="col-md-2">
-      <div class="pull-right">
-        <a class="btn btn-success" href="{{route('carrito')}}">  <img src="{{ asset('images/carrito-de-compras.png') }}"></a>
-      </div>
-    </div>
-    
-  </div>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-primary" data-dismiss="modal"> Cerrar</button>
-</div>
+{{-- <div class="panel panel-default">
+   <div class="panel-heading">
+    COMENTARIOS 
+   </div>
+   <div class="panel-body">
+      @if(isset($producto->comentarios))
+        @foreach ($producto->comentarios as $comentario)
+          <div class="row">
+            {{$comentario->name}}
+          </div>
+        @endforeach
+      @endif
+   </div>
+</div> --}}
+
+
+@endsection

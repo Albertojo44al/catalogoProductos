@@ -66,7 +66,7 @@
                 <hr>
               @endforeach
             @else  
-              <p>No se han encontrado comentarios</p>
+              <p>No se han encontrado comentarios.</p>
             @endif
         </div>
       </div>

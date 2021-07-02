@@ -6,7 +6,7 @@
         <div class="col-md">
             <div class="card">
                 <div class="card-header">
-                    <h2>agregar un nuevo producto</h2>
+                    <h2>Agregar un nuevo producto</h2>
                     <hr>
                 </div>
                 <div class="card-body text-center">
@@ -15,9 +15,9 @@
                     @if($errors->any())
                         <div class="aler alert-danger">
                             <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{$error}}</li>
-                                    @endforeach   
+                                @foreach ($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach   
                             </ul>
                         </div>
                     @endif
@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cantidad"> Cantidad </label>
-                        <input type="number" class="form-control" id="cantidad" name="cantidad"  value="{{old('cantidad')}}">
+                        <input type="number" class="form-control"  id="cantidad" name="cantidad"  value="{{old('cantidad')}}">
                     </div>
                     <div class="form-group">
                         <label for="imagen"> Imagen </label>
@@ -50,7 +50,7 @@
         </div>
         <div class="col-md text-center">
             <br><br>
-            <img class="a" src="{{asset('images/caja.png') }}">
+            <img class="a" width="350px" src="{{asset('images/new-product.png') }}">
         </div>
     </div>
 

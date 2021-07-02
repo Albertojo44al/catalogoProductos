@@ -3,7 +3,7 @@
 @section('content')
 
   <div class="row pt-5 text-center">
-    <img class="card-img-top descripcion-imagen" src="{{ asset('images/fondo.jpg') }}" alt="imagen de fondo" width="85%" height="20%">
+    <img class="card-img-top background-image" src="{{ asset('images/fondo.jpg') }}" alt="imagen de fondo" width="110%" height="20%">
   </div>
   <hr>
 

@@ -5,23 +5,23 @@
   <div class="row">
     <div class="col-md-3">
       @if(Storage::disk('images')->has($producto->image))
-        <img class="card-img-top producto-imagen" width="100%" height="150px" src="{{url('/imagen/'.$producto->image)}}" alt="{{$producto->name}}">
+        <img class="card-img-top producto-imagen" height="150px" src="{{url('/imagen/'.$producto->image)}}" alt="{{$producto->name}}">
       @endif
     </div>
     <div class="col-md-8">
-      <div class="row">
+      <div >
         <h4>
           <b>
             {{$producto->name}}
           </b>
         </h4>
       </div>
-      <div class="row">
+      <div >
         <p>
           {{$producto->description}}
         </p>
       </div>
-      <div class="row">
+      <div  >
         <label> Cantidad:  {{$producto->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
         <label> Precio: L {{number_format( $producto->price, 2, '.', '')}} </label>
       </div>

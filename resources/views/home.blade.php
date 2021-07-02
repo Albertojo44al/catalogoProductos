@@ -36,9 +36,9 @@
                                 @if(Auth::user()->role == 1)
                                     <div class="pull-right">
                                         
-                                        <a class="btn btn-primary"  href="{{route('producto', ['id' => $prod->id])}}" >  <img src="{{ asset('images/chat.png') }}">  </a>
-                                        <a class="btn btn-danger"  href="#elimnarModal{{$prod->id}}" data-toggle="modal">  <img src="{{ asset('images/delete.png') }}">  </a>
-                                        <a class="btn btn-warning" href="{{route('editarProducto', ['id' => $prod->id])}}">  <img src="{{ asset('images/edit.png') }}"> </a>    
+                                        <a class="btn btn-primary" title="Ver comentarios" href="{{route('producto', ['id' => $prod->id])}}" >  <img src="{{ asset('images/chat.png') }}">  </a>
+                                        <a class="btn btn-danger"  title="Eliminar producto" href="#elimnarModal{{$prod->id}}" data-toggle="modal">  <img src="{{ asset('images/delete.png') }}">  </a>
+                                        <a class="btn btn-warning" title="Editar producto" href="{{route('editarProducto', ['id' => $prod->id])}}">  <img src="{{ asset('images/edit.png') }}"> </a>    
                                     </div>
                                 @endif
                             </div>
@@ -46,19 +46,19 @@
                                 <div class="row">
                                     <div class="col-md-3 text-center">
                                         @if(Storage::disk('images')->has($prod->image))
-                                            <img class="card-img-top producto-imagen" height="80px" src="{{url('/imagen/'.$prod->image)}}" alt="{{$prod->name}}">
+                                            <img class="card-img-top producto-imagen" height="100px" width="160px" src="{{url('/imagen/'.$prod->image)}}" alt="{{$prod->name}}">
                                         @endif
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="row">
+                                        <div >
                                             <h4><b>{{$prod->name}}</b></h4>
                                         </div>
-                                        <div class="row">
+                                        <div >
                                             <p>
                                                 {{$prod->description}}
                                             </p>
                                         </div>
-                                        <div class="row">
+                                        <div >
                                             <label> Cantidad:  {{$prod->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
                                             <label> Precio: L {{number_format( $prod->price, 2, '.', '')}} </label>
                                         </div>

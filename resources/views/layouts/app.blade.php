@@ -66,32 +66,32 @@
                             </form>
                             <li>
                             @if(Auth::user()->role==1)
-                                <a class="color-white-link" href="{{url('/home')}}">Catalogo</a>
+                                <a class="color-white-link" href="{{url('/home')}}">Productos</a>
                             @else
                                 <a class="color-white-link" href="{{url('/')}}">Catalogo</a>
                             @endif
                                 
                             </li>
-                            <li><a class="color-white-link" href=""><img src="{{ asset('images/carrito-de-compras.png') }}"></a></li>
                             <li class="dropdown">
                                 <a href="#" class="color-white-link" data-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+                                        onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
                                             Salir
                                         </a>
-
+                                        
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
                                 </ul>
                             </li>
+                            {{-- <li><a class="color-white-link" href=""><img src="{{ asset('images/carrito-de-compras.png') }}"></a></li> --}}
                         @endif
                     </ul>
                 </div>

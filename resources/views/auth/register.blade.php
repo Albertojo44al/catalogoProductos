@@ -61,17 +61,6 @@
                             </div>
                         </div>
 
-                        {{-- <div class="form-group">
-                            <div class="form-check col-md-7 control-label form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                                <label class="form-check-label" for="inlineRadio1">administrador</label>
-                              </div>
-                              <div class="form-check col-md-2 control-label form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                                <label class="form-check-label" for="inlineRadio2">usuario</label>
-                              </div>
-                        </div> --}}
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">

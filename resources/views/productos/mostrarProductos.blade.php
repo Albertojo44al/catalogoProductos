@@ -1,53 +1,10 @@
-@extends('layouts.app')
 
-
-@section('content')
-  
-  <div id="myCarousel" class="carousel slide background-image" data-ride="carousel">
-      <!-- Indicators -->
-    
-      <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="{{ asset('images/fondo.jpg')}}"  alt="" style="width:100%;  height:450px">
-        </div>
-  
-        <div class="item">
-            <img src="{{ asset('images/fondo1.png')}}" alt="" style="width:100%; height:450px">
-        </div>
-  
-        <div class="item">
-            <img src="{{ asset('images/fondo2.jpg')}}" alt="" style="width:100%; height:450px">
-        </div>
-    </div>
-  
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-  
-    </a>
-  </div>
-
-  <hr>
-
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-md-10">
-        @if(session('message'))
-          <div class="alert alert-success">
-              {{session('message')}}
-          </div>
-        @endif
-      </div>
-    </div>
-    <br><br>
-    @if (session('status'))
-      <div class="alert alert-success">
-          {{ session('status') }}
-      </div>
+<div class="container">
+    @if ($productos->isEmpty())
+        <h3> Lo sentimos, no encontramos resultados para </h3>
+        <h3 class="text-success"><b>{{$search}}</b></h3>
     @endif
+
     <div class="container">
       <ul id="producto-list">
         @foreach ($productos as $prod)
@@ -64,7 +21,7 @@
                     </div>    
                 @endif
                 <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}"  class="panel-body text-center pointer">
-                  
+                   
                     <hr>
                     <h4>{{$prod->name}}</h4>  
                     <label> Cantidad:  {{$prod->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -106,7 +63,6 @@
                               {{$prod->description}}
                             </p>    
                           </div>
-                            
                         </div>
                         <br><br>
                         <div class="row">
@@ -124,7 +80,3 @@
     <div class="panel-footer"> {{$productos->links()}}</div>
     </div>
   </div>
-@endsection
-
-
- 

@@ -26,9 +26,6 @@
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                     </button>
 
                     <!-- Branding Image -->
@@ -54,14 +51,13 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a class="color-white-link" href="{{ route('login') }}">Iniciar sesión</a></li>
-                            <li><a class="color-white-link" href="{{ route('register') }}">Crear una cuenta</a></li>
-                            <li><a class="color-white-link" href=""><img src="{{ asset('images/carrito-de-compras.png') }}"></a></li>
+                            <li><a class="color-white-link" href="{{ route('register') }}">Crear una cuenta</a></li>        
                         @else
                             <form class="navbar-form navbar-left" role="search" action="{{url('/buscar')}}">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Productos" name="search" id="search" value="{{old('search')}}">                        
                                 </div>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     <img src="{{ asset('images/lupa.png') }}"> 
                                 </button>
                             </form>
@@ -82,7 +78,7 @@
                                     <li>
                                         <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                             Salir
                                         </a>
                                         
@@ -92,12 +88,12 @@
                                     </li>
                                 </ul>
                             </li>
-                            {{-- <li><a class="color-white-link" href=""><img src="{{ asset('images/carrito-de-compras.png') }}"></a></li> --}}
                         @endif
                     </ul>
                 </div>
             </div>
         </nav>
+
         <div class=" vertical-view">
             <br><br><br><br>
 

@@ -126,11 +126,6 @@ class ProductosController extends Controller
         ));
     }
     
-     public function agregarAcarrito(){
-        return redirect()->route('welcome')->with(array(
-            'carrito' => '¡El articulo se ha agregado al carrito!'
-        ));
-    }
 
     public function getProducto($id){
         $producto = producto::find($id);

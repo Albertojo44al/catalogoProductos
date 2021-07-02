@@ -4,7 +4,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 text-center">
         @if(Storage::disk('images')->has($producto->image))
           <img class="card-img-top producto-imagen" height="150px" src="{{url('/imagen/'.$producto->image)}}" alt="{{$producto->name}}">
         @endif
@@ -37,7 +37,7 @@
           COMENTARIOS 
         </div>
         <div class="panel-body">
-            @if(isset($producto->comentarios))
+            @if($producto->comentarios->isNotEmpty())
               @foreach ($producto->comentarios as $comentario)
                 <div class="row">
                   <div class="col-md-3 comment-box">
@@ -65,9 +65,8 @@
                 </div>
                 <hr>
               @endforeach
-              {{-- @if($producto->comentratios ==null)  
-                <p>No se han encontrado comentarios</p>
-              @endif --}}
+            @else  
+              <p>No se han encontrado comentarios</p>
             @endif
         </div>
       </div>

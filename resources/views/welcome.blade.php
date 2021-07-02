@@ -3,7 +3,7 @@
 
 @section('content')
   
-  <div id="myCarousel" class="carousel slide background-image" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
     
       <!-- Wrapper for slides -->

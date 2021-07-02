@@ -20,7 +20,7 @@ class CreateProductsTables extends Migration
             $table->string('image');
             $table->integer('quantity');
             $table->double('price');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

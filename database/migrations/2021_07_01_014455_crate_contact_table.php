@@ -15,7 +15,7 @@ class CrateContactTable extends Migration
     {
         Schema::create('contact_comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('producto_id');
+            $table->integer('producto_id')->unsigned();
             $table->string('name');
             $table->string('email');
             $table->string('comment');

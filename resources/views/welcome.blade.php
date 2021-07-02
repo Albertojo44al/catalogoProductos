@@ -34,7 +34,7 @@
   <div class="container">
     
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-12">
         @if(session('message'))
           <div class="alert alert-success">
               {{session('message')}}

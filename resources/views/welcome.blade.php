@@ -2,9 +2,35 @@
 
 @section('content')
 
-  <div class="row pt-5 text-center">
-    <img class="card-img-top background-image" src="{{ asset('images/fondo.jpg') }}" alt="imagen de fondo" width="110%" height="20%">
+<div id="myCarousel" class="carousel slide background-image" data-ride="carousel">
+  <!-- Indicators -->
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+      <div class="item active">
+          <img src="{{ asset('images/fondo.jpg')}}"  alt="" style="width:100%;  height:500px">
+      </div>
+
+      <div class="item">
+          <img src="{{ asset('images/fondo1.png')}}" alt="" style="width:100%; height:500px">
+      </div>
+
+      <div class="item">
+          <img src="{{ asset('images/fondo2.jpg')}}" alt="" style="width:100%; height:500px">
+      </div>
   </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+  </a>
+</div>
+
   <hr>
 
   <div class="container">

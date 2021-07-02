@@ -64,6 +64,9 @@
               </div>
               <hr>
             @endforeach
+            {{-- @if($producto->comentratios ==null)  
+              <p>No se han encontrado comentarios</p>
+            @endif --}}
           @endif
       </div>
     </div>

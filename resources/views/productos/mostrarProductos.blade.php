@@ -17,7 +17,7 @@
                 
                 @if(Storage::disk('images')->has($prod->image))
                     <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}" class="img-mask pointer text-center">
-                        <img class="card-img-top producto-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
+                        <img class="producto-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
                     </div>    
                 @endif
                 <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}"  class="panel-body text-center pointer">
@@ -49,7 +49,7 @@
                             </div>
                             @if(Storage::disk('images')->has($prod->image))
                               <div class="img-mask-descripcion pointer">
-                                  <img class="card-img-top descripcion-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
+                                  <img class="descripcion-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
                               </div>    
                             @endif
                             <br><br>

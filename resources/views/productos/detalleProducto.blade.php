@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-3 text-center">
         @if(Storage::disk('images')->has($producto->image))
-          <img class="card-img-top producto-imagen" height="150px" src="{{url('/imagen/'.$producto->image)}}" alt="{{$producto->name}}">
+          <img class="producto-imagen" src="{{url('/imagen/'.$producto->image)}}" alt="{{$producto->name}}"  style="height: 150px; max-width:220px">
         @endif
       </div>
       <div class="col-md-8">

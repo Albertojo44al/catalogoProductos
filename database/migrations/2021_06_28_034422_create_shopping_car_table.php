@@ -15,7 +15,7 @@ class CreateShoppingCarTable extends Migration
     {
         Schema::create('shopping_car', function (Blueprint $table) {
             $table->increments('id')->unique();;
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

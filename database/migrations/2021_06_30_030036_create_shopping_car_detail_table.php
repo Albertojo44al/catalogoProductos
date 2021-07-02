@@ -18,6 +18,7 @@ class CreateShoppingCarDetailTable extends Migration
             $table->integer('product_id');
             $table->integer('car_id');
             $table->integer('quantity');
+            
             $table->foreign('car_id')->references('id')->on('shopping_car');
             $table->foreign('product_id')->references('id')->on('products');
         });

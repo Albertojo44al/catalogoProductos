@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
     <div class="row">
       <div class="col-md-10">
         @if(session('message'))
@@ -93,12 +94,10 @@
                     </div>
 
                 @endforeach
-            </ul>
-            
-           
+            </ul> 
             
         </div>
         <div class="panel-footer"> {{$productos->links()}}</div>
     </div>
-      
+</div>   
 @endsection

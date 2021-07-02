@@ -98,7 +98,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container vertical-view">
+        <div class=" vertical-view">
             <br><br><br><br>
 
             @yield('content')

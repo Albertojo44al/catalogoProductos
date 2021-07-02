@@ -43,7 +43,7 @@
                                     </div>
                                 @endif
                             </div>
-                            <div  href="{{route('producto', ['id' => $prod->id])}}"  class="panel-body pointer">
+                            <a  href="{{route('producto', ['id' => $prod->id])}}"  class="panel-body pointer" style="color: rgb(56, 56, 56)">
                                 <div class="row">
                                     <div class="col-md-3 text-center">
                                         @if(Storage::disk('images')->has($prod->image))
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                 </div>      
-                            </div>
+                            </a>
                         </div> 
                     </div>
 

@@ -26,7 +26,7 @@
                             <div class="col-md-5">
                                 <br><br>
                                 <div class="form-group">
-                                    <img class="producto-imagen"  height="200px" src="{{url('/imagen/'.$producto->image)}}"><br>
+                                    <img class="producto-imagen" src="{{url('/imagen/'.$producto->image)}}" style="height: 200px; max-width:340px"><br>
                                     <label for="imagen"> Imagen </label>
                                     <input type="file" class="form-control" id="imagen" name="imagen" accept="image/png, image/jpeg, image/jpg"  value="{{$producto->image}}" >
                                 </div>

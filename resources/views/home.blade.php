@@ -35,8 +35,7 @@
                         <div class="panel panel-size panel-default mr-4">  
                             <div class="panel">
                                 @if(Auth::user()->role == 1)
-                                    <div class="pull-right">
-                                        
+                                    <div class="pull-right">  
                                         <a class="btn btn-primary" title="Ver comentarios" href="{{route('producto', ['id' => $prod->id])}}" >  <img src="{{ asset('images/chat.png') }}">  </a>
                                         <a class="btn btn-danger"  title="Eliminar producto" href="#elimnarModal{{$prod->id}}" data-toggle="modal">  <img src="{{ asset('images/delete.png') }}">  </a>
                                         <a class="btn btn-warning" title="Editar producto" href="{{route('editarProducto', ['id' => $prod->id])}}">  <img src="{{ asset('images/edit.png') }}"> </a>    

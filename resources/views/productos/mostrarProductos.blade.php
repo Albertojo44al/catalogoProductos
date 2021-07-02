@@ -6,75 +6,71 @@
     @endif
 
     <div class="container">
-      <ul id="producto-list">
-        @foreach ($productos as $prod)
-    
-          <div class="col-md-4">
-            <div class="panel panel-size panel-default card-height">  
-                <div class="panel">
-                  
-                </div>
-                
-                @if(Storage::disk('images')->has($prod->image))
-                    <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}" class="img-mask pointer text-center">
-                        <img class="producto-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
-                    </div>    
-                @endif
-                <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}"  class="panel-body text-center pointer">
-                   
-                    <hr>
-                    <h4>{{$prod->name}}</h4>  
-                    <label> Cantidad:  {{$prod->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
-                    <label> Precio: L {{number_format( $prod->price, 2, '.', '')}} </label> 
-                </div>
-            </div> 
-          </div>
-          <!-- Modal visualizar -->
-          <div class="modal fade" id="modalDetalle{{$prod->id}}" tabindex="-1" role="dialog" aria-labelledby="modalDetalle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body text-center">
-                      <div class="row ">
-                          <div class="col-md-2">   
-                          </div>
-                          <div class="col-md-8">
-                            <div class="panel">
-                              <h1> {{$prod->name}} <h1>
-                            </div>
-                            @if(Storage::disk('images')->has($prod->image))
-                              <div class="img-mask-descripcion pointer">
-                                  <img class="descripcion-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
-                              </div>    
+        <ul id="producto-list">
+            @foreach ($productos as $producto)
+                <div class="row">
+                    <div class="panel panel-size panel-default mr-4">  
+                        <div class="panel">
+                            @if(Auth::user()->role == 1)
+                                <div class="pull-right">  
+                                    <a class="btn btn-primary" title="Ver comentarios" href="{{route('producto', ['id' => $producto->id])}}" >  <img src="{{ asset('images/chat.png') }}">  </a>
+                                    <a class="btn btn-danger"  title="Eliminar producto" href="#elimnarModal{{$producto->id}}" data-toggle="modal">  <img src="{{ asset('images/delete.png') }}">  </a>
+                                    <a class="btn btn-warning" title="Editar producto" href="{{route('editarProducto', ['id' => $producto->id])}}">  <img src="{{ asset('images/edit.png') }}"> </a>    
+                                </div>
                             @endif
-                            <br><br>
-                            <label>
-                                Precio: {{number_format( $prod->price, 2, '.', '')}}
-                            </label>&nbsp;&nbsp;&nbsp;
-                            <label>
-                                Cantidad: {{$prod->quantity}}
-                            </label>
-                            <p> 
-                              {{$prod->description}}
-                            </p>    
-                          </div>
                         </div>
-                        <br><br>
-                        <div class="row">
-                          @include('productos.comentarios')
-                        </div>
-                      </div>
-                  </div>
+                        <a  href="{{route('producto', ['id' => $producto->id])}}"  class="panel-body pointer" style="color: rgb(56, 56, 56)">
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    @if(Storage::disk('images')->has($producto->image))
+                                        <img class="producto-imagen" height="100px" width="auto" src="{{url('/imagen/'.$producto->image)}}" alt="{{$producto->name}}">
+                                    @endif
+                                </div>
+                                <div class="col-md-8">
+                                    <div >
+                                        <h4><b>{{$producto->name}}</b></h4>
+                                    </div>
+                                    <div >
+                                        <p>
+                                            {{$producto->description}}
+                                        </p>
+                                    </div>
+                                    <div >
+                                        <label> Cantidad:  {{$producto->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label> Precio: L {{number_format( $producto->price, 2, '.', '')}} </label>
+                                    </div>
+                                </div>
+                            </div>      
+                        </a>
+                    </div> 
                 </div>
-              </div>
-            </div>
-          @endforeach
-        </ul>
+
+
+               
+                <!--Modal eliminar -->
+               
+                <!-- Modal / Ventana / Overlay en HTML -->
+                <div id="elimnarModal{{$producto->id}}" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">¿Estás seguro?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Seguro que quieres borrar el producto {{$producto->name}}?</p>
+                                <p class="text-warning"><small>Si lo borras, nunca podrás recuperarlo.</small></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                <a href="{{url('/borrar-producto/'.$producto->id)}}" type="button" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            @endforeach
+        </ul> 
       </div>
     <div class="row">
     <div class="panel-footer"> {{$productos->links()}}</div>

@@ -25,8 +25,14 @@ class ComentariosController extends Controller
 
         $contacto->save();
 
-        return redirect()->route('welcome')->with(array(
-            'message' => '¡Comentario agregado exactamente!'
-        ));
+        if($request->input('refresh')=='2'){
+            return redirect()->route('welcome')->with(array(
+                'message' => '¡Comentario agregado exactamente!'
+            ));
+        }else{
+            return redirect()->route('producto', ['id' =>$request->input('product_id')])->with(array(
+                'message' => '¡Comentario agregado exactamente!'
+            ));
+        }
     }
 }

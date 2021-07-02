@@ -17,7 +17,7 @@ class producto extends Model
 
 
     // muchos productos pueden tener un usuario
-    public function users()
+    public function user()
     {
         return $this->belongsTo('App\User','user_id','id');
     }

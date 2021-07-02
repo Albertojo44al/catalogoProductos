@@ -62,11 +62,14 @@
                                 </button>
                             </form>
                             <li>
-                            @if(Auth::user()->role==1)
-                                <a class="color-white-link" href="{{url('/home')}}">Productos</a>
-                            @else
-                                <a class="color-white-link" href="{{url('/')}}">Catalogo</a>
-                            @endif
+                           
+                                <a class="color-white-link" href="{{url('/home')}}">
+                                    @if(Auth::user()->role==1)
+                                        Mis productos
+                                    @else
+                                        Catalogo
+                                    @endif
+                                </a> 
                                 
                             </li>
                             <li class="dropdown">

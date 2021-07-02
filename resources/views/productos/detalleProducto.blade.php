@@ -30,12 +30,16 @@
     </div> 
 
     <hr>
+   
+    @if(session('message'))
+    <div class="alert alert-success">
+        {{session('message')}}
+    </div>
+    @endif
 
     <div class="comments-container">
       <div class="panel panel-default">
-        <div class="panel-heading">
-          COMENTARIOS 
-        </div>
+       
         <div class="panel-body">
             @if($producto->comentarios->isNotEmpty())
               @foreach ($producto->comentarios as $comentario)
@@ -43,6 +47,9 @@
                   <div class="col-md-3 comment-box">
                     <img src="{{asset('images/profile-user.png')}}" width="50px" alt="">&nbsp;     
                     <b>{{$comentario->name}}</b>
+                    @if($producto->user->email == $comentario->email)
+                    &nbsp;(Autor)
+                    @endif
                   </div>
                   <div class="col-md-9 padding ">
                     <div class="row">
@@ -67,9 +74,13 @@
               @endforeach
             @else  
               <p>No se han encontrado comentarios.</p>
-            @endif
-        </div>
+            @endif     
+        </div> 
       </div>
+    </div>
+
+    <div class="row">
+      @include('productos.comentarios')
     </div>
   </div>
 

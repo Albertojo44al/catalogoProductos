@@ -50,7 +50,7 @@
     @endif
     <div class="container">
       <ul id="producto-list">
-        @foreach ($productos as $prod)
+        @foreach ($productos as $producto)
     
           <div class="col-md-4">
             <div class="panel panel-size panel-default card-height">  
@@ -58,22 +58,22 @@
                   
                 </div>
                 
-                @if(Storage::disk('images')->has($prod->image))
-                    <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}" class="img-mask pointer text-center">
-                        <img class="producto-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
+                @if(Storage::disk('images')->has($producto->image))
+                    <div data-toggle="modal" data-target="#modalDetalle{{$producto->id}}" class="img-mask pointer text-center">
+                        <img class="producto-imagen" src="{{url('/imagen/'.$producto->image)}}" alt="Card image cap">
                     </div>    
                 @endif
-                <div data-toggle="modal" data-target="#modalDetalle{{$prod->id}}"  class="panel-body text-center pointer">
+                <div data-toggle="modal" data-target="#modalDetalle{{$producto->id}}"  class="panel-body text-center pointer">
                   
                     <hr>
-                    <h4>{{$prod->name}}</h4>  
-                    <label> Cantidad:  {{$prod->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
-                    <label> Precio: L {{number_format( $prod->price, 2, '.', '')}} </label> 
+                    <h4>{{$producto->name}}</h4>  
+                    <label> Cantidad:  {{$producto->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label> Precio: L {{number_format( $producto->price, 2, '.', '')}} </label> 
                 </div>
             </div> 
           </div>
           <!-- Modal visualizar -->
-          <div class="modal fade" id="modalDetalle{{$prod->id}}" tabindex="-1" role="dialog" aria-labelledby="modalDetalle" aria-hidden="true">
+          <div class="modal fade" id="modalDetalle{{$producto->id}}" tabindex="-1" role="dialog" aria-labelledby="modalDetalle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                   <div class="modal-content">
@@ -88,22 +88,22 @@
                           </div>
                           <div class="col-md-8">
                             <div class="panel">
-                              <h1> {{$prod->name}} <h1>
+                              <h1> {{$producto->name}} <h1>
                             </div>
-                            @if(Storage::disk('images')->has($prod->image))
+                            @if(Storage::disk('images')->has($producto->image))
                               <div class="img-mask-descripcion pointer">
-                                  <img class="descripcion-imagen" src="{{url('/imagen/'.$prod->image)}}" alt="Card image cap">
+                                  <img class="descripcion-imagen" src="{{url('/imagen/'.$producto->image)}}" alt="Card image cap">
                               </div>    
                             @endif
                             <br><br>
                             <label>
-                                Precio: {{number_format( $prod->price, 2, '.', '')}}
+                                Precio: {{number_format( $producto->price, 2, '.', '')}}
                             </label>&nbsp;&nbsp;&nbsp;
                             <label>
-                                Cantidad: {{$prod->quantity}}
+                                Cantidad: {{$producto->quantity}}
                             </label>
                             <p> 
-                              {{$prod->description}}
+                              {{$producto->description}}
                             </p>    
                           </div>
                             

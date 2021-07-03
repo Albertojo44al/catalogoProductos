@@ -46,10 +46,13 @@
                 <div class="row">
                   <div class="col-md-3 comment-box">
                     <img src="{{asset('images/profile-user.png')}}" width="50px" alt="">&nbsp;     
-                    <b>{{$comentario->name}}</b>
+                    
                     @if($producto->user->email == $comentario->email)
-                    &nbsp;(Autor)
+                      <b class="text-success">{{$comentario->name}}&nbsp;(Autor)</b>
+                    @else
+                    <b>{{$comentario->name}}</b>
                     @endif
+                    
                   </div>
                   <div class="col-md-9 padding ">
                     <div class="row">

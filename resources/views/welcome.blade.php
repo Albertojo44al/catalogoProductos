@@ -92,7 +92,7 @@
                             </div>
                             @if(Storage::disk('images')->has($producto->image))
                               <div class="img-mask-descripcion pointer">
-                                  <img class="descripcion-imagen" src="{{url('/imagen/'.$producto->image)}}" alt="Card image cap">
+                                  <img class="descripcion-imagen" src="{{url('/imagen/'.$producto->image)}}" alt="Card image cap" style="height:200px; max-width:100% ">
                               </div>    
                             @endif
                             <br><br>

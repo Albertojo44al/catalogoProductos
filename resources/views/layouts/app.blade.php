@@ -104,7 +104,7 @@
         </div>   
         <footer class="col-md-10 col-md-offset-1">
             <hr>
-            <p>MultiShop tu tienda en lineda de confianza &copy; 2021</p>
+            <p>MultiShop tu tienda en linea de confianza &copy; 2021</p>
         </footer>
     </div>
 

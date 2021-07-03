@@ -50,15 +50,15 @@
                                         @endif
                                     </div>
                                     <div class="col-md-8">
-                                        <div >
+                                        <div class="col-md-12">
                                             <h4><b>{{$prod->name}}</b></h4>
                                         </div>
-                                        <div >
+                                        <div class="col-md-12">
                                             <p>
                                                 {{$prod->description}}
                                             </p>
                                         </div>
-                                        <div >
+                                        <div class="col-md-12">
                                             <label> Cantidad:  {{$prod->quantity}} </label>  	 &nbsp;&nbsp;&nbsp;&nbsp;
                                             <label> Precio: L {{number_format( $prod->price, 2, '.', '')}} </label>
                                         </div>
